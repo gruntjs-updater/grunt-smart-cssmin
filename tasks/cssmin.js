@@ -82,6 +82,6 @@ module.exports = function(grunt) {
   };
   
   var getMtime = function(path) {
-    return (new Date(statSync(path).mtime)).getTime();
+    return statSync(path).mtime.getTime();
   };
 };
