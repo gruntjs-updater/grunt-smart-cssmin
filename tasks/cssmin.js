@@ -12,24 +12,45 @@ module.exports = function(grunt) {
   var helper = require('grunt-lib-contrib').init(grunt);
   var path = require('path');
   var CleanCSS = require('clean-css');
+  var statSync = require('fs').statSync;
 
   grunt.registerMultiTask('cssmin', 'Minify CSS files', function() {
     var options = this.options({
-      report: false
+      report: false,
+      onlyStale: true
     });
     this.files.forEach(function(f) {
+      var modifiedFiles = 0, destinationMtime = 0;
+      
+      if(options.onlyStale && grunt.file.exists(f.dest)) {
+        
+        destinationMtime = getMtime(f.dest);
+      }
+      
       var valid = f.src.filter(function(filepath) {
         // Warn on and remove invalid source files (if nonull was set).
         if (!grunt.file.exists(filepath)) {
           grunt.log.warn('Source file "' + filepath + '" not found.');
           return false;
         } else {
+          if(options.onlyStale && getMtime(filepath) > destinationMtime) {
+            modifiedFiles++;
+          }
+          
           return true;
         }
       });
-      var max = valid
-      .map(grunt.file.read)
-      .join(grunt.util.normalizelf(grunt.util.linefeed));
+      
+      if(options.onlyStale && modifiedFiles === 0) {
+        grunt.log.writeln('File ' + f.dest + ' is already up to date.');
+        return;
+      }
+      
+      var max;
+      if(options.report) {
+        max = valid.map(grunt.file.read).join(grunt.util.normalizelf(grunt.util.linefeed));
+      }
+      
       var min = valid.map(function(f) {
         options.relativeTo = path.dirname(f);
         return minifyCSS(grunt.file.read(f), options);
@@ -58,5 +79,9 @@ module.exports = function(grunt) {
       grunt.log.error(e);
       grunt.fail.warn('css minification failed.');
     }
+  };
+  
+  var getMtime = function(path) {
+    return (new Date(statSync(path).mtime)).getTime();
   };
 };

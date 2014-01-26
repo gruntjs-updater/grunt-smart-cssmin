@@ -1,23 +1,23 @@
 {
-  "name": "grunt-contrib-cssmin",
+  "name": "grunt-smart-cssmin",
   "description": "Compress CSS files.",
   "version": "0.7.0",
-  "homepage": "https://github.com/gruntjs/grunt-contrib-cssmin",
+  "homepage": "https://github.com/phpmycoder/grunt-smart-cssmin",
   "author": {
     "name": "Grunt Team",
     "url": "http://gruntjs.com/"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/gruntjs/grunt-contrib-cssmin.git"
+    "url": "git://github.com/phpmycoder/grunt-smart-cssmin.git"
   },
   "bugs": {
-    "url": "https://github.com/gruntjs/grunt-contrib-cssmin/issues"
+    "url": "https://github.com/phpmycoder/grunt-smart-cssmin/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/gruntjs/grunt-contrib-cssmin/blob/master/LICENSE-MIT"
+      "url": "https://github.com/phpmycoder/grunt-smart-cssmin/blob/master/LICENSE-MIT"
     }
   ],
   "engines": {

@@ -1,3 +1,8 @@
+v0.8.0:
+  date: 2014-01-26
+  changes:
+    - added 'onlyStale' option to prevent files without changes from being unnecessairly re-minified
+    - only computes min/max stats if the option is set
 v0.7.0:
   date: 2013-11-23
   changes:
