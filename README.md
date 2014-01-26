@@ -1,4 +1,4 @@
-# grunt-contrib-cssmin v0.8.0 [![Build Status](https://travis-ci.org/phpmycoder/grunt-smart-cssmin.png?branch=master)](https://travis-ci.org/phpmycoder/grunt-smart-cssmin)
+# grunt-contrib-cssmin v0.8.1 [![Build Status](https://travis-ci.org/phpmycoder/grunt-smart-cssmin.png?branch=master)](https://travis-ci.org/phpmycoder/grunt-smart-cssmin)
 
 > Compress CSS files.
 
@@ -60,7 +60,7 @@ Minified: 101615 bytes.
 Gzipped:  20084 bytes.
 ```
 
-#### staleOnly
+#### onlyStale
 Choices: `true`, `false`
 Default: `true`
 

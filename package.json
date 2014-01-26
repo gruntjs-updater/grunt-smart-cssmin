@@ -1,7 +1,7 @@
 {
   "name": "grunt-smart-cssmin",
   "description": "Compress CSS files.",
-  "version": "0.7.0",
+  "version": "0.8.1",
   "homepage": "https://github.com/phpmycoder/grunt-smart-cssmin",
   "author": {
     "name": "Grunt Team",
