@@ -17,13 +17,11 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('cssmin', 'Minify CSS files', function() {
     var options = this.options({
       report: false,
-      onlyStale: true
+      onlyStale: false
     });
     this.files.forEach(function(f) {
-      var modifiedFiles = 0, destinationMtime = 0;
-      
+      var sourcesModified = false, destinationMtime = 0;
       if(options.onlyStale && grunt.file.exists(f.dest)) {
-        
         destinationMtime = getMtime(f.dest);
       }
       
@@ -33,15 +31,15 @@ module.exports = function(grunt) {
           grunt.log.warn('Source file "' + filepath + '" not found.');
           return false;
         } else {
-          if(options.onlyStale && getMtime(filepath) >= destinationMtime) {
-            modifiedFiles++;
+          // Use mtime of destination and its sources to determine staleness
+          if(options.onlyStale && !sourcesModified && getMtime(filepath) >= destinationMtime) {
+            sourcesModified = true;
           }
-          
           return true;
         }
       });
       
-      if(options.onlyStale && modifiedFiles === 0) {
+      if(options.onlyStale && !sourcesModified) {
         grunt.log.writeln('File ' + f.dest + ' is already up to date.');
         return;
       }
