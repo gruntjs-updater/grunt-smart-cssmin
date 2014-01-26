@@ -33,7 +33,7 @@ module.exports = function(grunt) {
           grunt.log.warn('Source file "' + filepath + '" not found.');
           return false;
         } else {
-          if(options.onlyStale && getMtime(filepath) > destinationMtime) {
+          if(options.onlyStale && getMtime(filepath) >= destinationMtime) {
             modifiedFiles++;
           }
           
