@@ -17,7 +17,7 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('cssmin', 'Minify CSS files', function() {
     var options = this.options({
       report: false,
-      onlyStale: false
+      onlyStale: true
     });
     this.files.forEach(function(f) {
       var sourcesModified = false, destinationMtime = 0;

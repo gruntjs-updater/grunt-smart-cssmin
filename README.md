@@ -1,4 +1,4 @@
-# grunt-contrib-cssmin v0.8.2 [![Build Status](https://travis-ci.org/phpmycoder/grunt-smart-cssmin.png?branch=master)](https://travis-ci.org/phpmycoder/grunt-smart-cssmin)
+# grunt-contrib-cssmin v0.8.3 [![Build Status](https://travis-ci.org/phpmycoder/grunt-smart-cssmin.png?branch=master)](https://travis-ci.org/phpmycoder/grunt-smart-cssmin)
 
 > Compress CSS files.
 
