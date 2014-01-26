@@ -1,4 +1,4 @@
-# grunt-contrib-cssmin v0.7.0 [![Build Status](https://travis-ci.org/gruntjs/grunt-contrib-cssmin.png?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-cssmin)
+# grunt-contrib-cssmin v0.8.0 [![Build Status](https://travis-ci.org/phpmycoder/grunt-smart-cssmin.png?branch=master)](https://travis-ci.org/phpmycoder/grunt-smart-cssmin)
 
 > Compress CSS files.
 
@@ -58,6 +58,18 @@ Example ouput using `'gzip'`:
 Original: 198444 bytes.
 Minified: 101615 bytes.
 Gzipped:  20084 bytes.
+```
+
+#### staleOnly
+Choices: `true`, `false`
+Default: `true`
+
+If the destination file is up to date (none of its sources have been updated since the last minification), it it skipped.
+
+Example output using `true` with a destination `main.min.js` that is up to date:
+
+```
+File main.min.js is already up to date.
 ```
 
 ### Usage Examples
